@@ -15,6 +15,13 @@ npm start
 
 Client Starts Listening on http://localhost:3333
 
+login Credentials
+-----------------
+
+userId: `test`
+password: `test`
+
+
 ```
 
 ## Backend Tech Stack
