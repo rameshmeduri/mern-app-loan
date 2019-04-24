@@ -1,7 +1,6 @@
 import React from 'react';
-import { ConnectedRouter } from 'react-router-redux';
 import { Provider } from 'react-redux';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Router, Route, Switch } from 'react-router-dom';
 
 import { configureStore, history } from './store';
 import App from './containers/App';
@@ -22,11 +21,11 @@ class MainApp extends React.Component {
   render() {
     return (
       <Provider store={store}>
-        <BrowserRouter history={history}>
+        <Router history={history}>
           <Switch>
             <Route path="/" component={App} />
           </Switch>
-        </BrowserRouter>
+        </Router>
       </Provider>
     );
   }

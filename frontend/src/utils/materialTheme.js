@@ -51,6 +51,7 @@ export default {
     danger: 'orange'
   },
   typography: {
+    useNextVariants: true,
     button: {
       fontWeight: 400,
       textAlign: 'capitalize'

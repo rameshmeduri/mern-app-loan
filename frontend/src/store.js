@@ -1,13 +1,11 @@
 import { applyMiddleware, compose, createStore } from 'redux';
 import { createHashHistory } from 'history';
-import { routerMiddleware } from 'react-router-redux';
 import logger from 'redux-logger';
 import thunk from 'redux-thunk';
 import reducers from './reducers/index';
 
 const history = createHashHistory();
-const routeMiddleware = routerMiddleware(history);
-const middlewares = [routeMiddleware, thunk];
+const middlewares = [thunk];
 const env = process.env.NODE_ENV;
 
 if (env === 'development') {
