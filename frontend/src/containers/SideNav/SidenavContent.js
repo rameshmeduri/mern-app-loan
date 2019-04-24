@@ -16,7 +16,7 @@ class SidenavContent extends Component {
 
     const pathname = `#${history.location.pathname}`;
 
-    $('ul.nav-menu > li.menu').click(function () {
+    $('ul.nav-menu > li.menu').click(function() {
       const menuLi = this;
       $('ul.nav-menu > li.menu')
         .not(menuLi)
@@ -28,7 +28,7 @@ class SidenavContent extends Component {
       $(menuLi).toggleClass('open');
     });
 
-    $('ul.sub-menu li').click(function (e) {
+    $('ul.sub-menu li').click(function(e) {
       let superSubMenu = $(this).parent();
       if (superSubMenu.parent().hasClass('active')) {
         $('li', superSubMenu)
@@ -57,7 +57,7 @@ class SidenavContent extends Component {
 
   render() {
     return (
-      <ul className="nav-menu" ref={(n) => this.nav = n}>
+      <ul className="nav-menu" ref={(n) => (this.nav = n)}>
         <li className="nav-header">&nbsp;</li>
         <li className="menu no-arrow">
           <NavLink to="/app/create_loan">
@@ -70,7 +70,7 @@ class SidenavContent extends Component {
             <i className="zmdi zmdi-sort-amount-desc zmdi-hc-fw" />
             <span className="nav-text">Repayment</span>
           </NavLink>
-        </li>        
+        </li>
       </ul>
     );
   }

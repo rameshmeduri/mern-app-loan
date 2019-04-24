@@ -1,7 +1,7 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem } from 'reactstrap';
 
-const getDisplayString = sub => {
+const getDisplayString = (sub) => {
   const arr = sub.split('-');
   if (arr.length > 1) {
     return (

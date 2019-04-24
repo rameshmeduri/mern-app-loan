@@ -11,7 +11,6 @@ export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const INIT_URL = 'INIT_URL';
 
-
 // Notifications
 export const ADD_ALERT = 'ADD_ALERT';
 

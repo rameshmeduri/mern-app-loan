@@ -5,8 +5,11 @@ import { withRouter } from 'react-router-dom';
 import Drawer from '@material-ui/core/Drawer';
 
 import SidenavContent from './SidenavContent';
-import { COLLAPSED_DRAWER, FIXED_DRAWER } from 'actions/types';
-import { toggleCollapsedNav, updateWindowWidth } from 'actions/settingActions';
+import { COLLAPSED_DRAWER, FIXED_DRAWER } from '../../actions/types';
+import {
+  toggleCollapsedNav,
+  updateWindowWidth
+} from '../../actions/settingActions';
 
 class SideNav extends React.PureComponent {
   onToggleCollapsedNav = (e) => {
@@ -25,8 +28,8 @@ class SideNav extends React.PureComponent {
     const drawerStyle = drawerType.includes(FIXED_DRAWER)
       ? 'd-xl-flex'
       : drawerType.includes(COLLAPSED_DRAWER)
-        ? ''
-        : 'd-flex';
+      ? ''
+      : 'd-flex';
     let type = 'permanent';
     if (
       drawerType.includes(COLLAPSED_DRAWER) ||
@@ -66,5 +69,8 @@ const mapStateToProps = (state) => ({
 });
 
 export default withRouter(
-  connect(mapStateToProps, { toggleCollapsedNav, updateWindowWidth })(SideNav)
+  connect(
+    mapStateToProps,
+    { toggleCollapsedNav, updateWindowWidth }
+  )(SideNav)
 );

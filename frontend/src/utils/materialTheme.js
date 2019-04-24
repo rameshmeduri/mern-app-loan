@@ -13,7 +13,7 @@ const blue = {
   A200: '#8bbbff',
   A400: '#589dff',
   A700: '#3f8eff',
-  'contrastDefaultColor': 'light'
+  contrastDefaultColor: 'light'
 };
 
 const green = {
@@ -31,19 +31,19 @@ const green = {
   A200: '#74ff8d',
   A400: '#41ff63',
   A700: '#27ff4e',
-  'contrastDefaultColor': 'light'
+  contrastDefaultColor: 'light'
 };
 
 export default {
   palette: {
     primary: {
       light: blue[600],
-      main: blue[800],// #0c77b9
+      main: blue[800], // #0c77b9
       dark: blue[900]
     },
     secondary: {
       light: green[300],
-      main: green[500],// #12b44e
+      main: green[500], // #12b44e
       dark: green[700]
     }
   },

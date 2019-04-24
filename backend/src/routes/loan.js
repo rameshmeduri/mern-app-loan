@@ -1,8 +1,11 @@
 import passport from 'passport';
-import { getLoan, createLoan, createWeeklyRepayment} from '../controllers/loan';
+import {
+  getLoan,
+  createLoan,
+  createWeeklyRepayment
+} from '../controllers/loan';
 
 function setupLoanRoutes(router) {
-
   // GET Loan Account
   router.get(
     '/getLoan',

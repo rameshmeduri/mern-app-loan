@@ -2,32 +2,32 @@ import React, { Component } from 'react';
 import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles';
 import { Redirect, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import materialTheme from 'utils/materialTheme';
-import MainApp from 'app/index';
-import SignIn from './SignIn';
-import { setInitUrl } from 'actions/authActions';
 
+import materialTheme from '../utils/materialTheme';
+import MainApp from '../app/index';
+import SignIn from './SignIn';
+import { setInitUrl } from '../actions/authActions';
 
 const RestrictedRoute = ({ component: Component, user, ...rest }) => (
   <Route
     {...rest}
-    render={props =>
+    render={(props) =>
       user ? (
         <Component {...props} />
       ) : (
-          <Redirect
-            to={{
-              pathname: '/signin',
-              state: { from: props.location }
-            }}
-          />
-        )
+        <Redirect
+          to={{
+            pathname: '/signin',
+            state: { from: props.location }
+          }}
+        />
+      )
     }
   />
 );
 
 class App extends Component {
-
+  
   componentDidMount() {
     if (this.props.initURL === '') {
       this.props.setInitUrl(this.props.history.location.pathname);
@@ -38,13 +38,13 @@ class App extends Component {
     const { match, location, user, initURL } = this.props;
     if (location.pathname === '/') {
       if (user === null) {
-          return ( <Redirect to={'/signin'}/> );
+        return <Redirect to={'/signin'} />;
       } else if (initURL === '' || initURL === '/' || initURL === '/signin') {
-          return ( <Redirect to={'/app/create_loan'}/> );
+        return <Redirect to={'/app/create_loan'} />;
       } else {
-          return ( <Redirect to={initURL}/> );
+        return <Redirect to={initURL} />;
       }
-  }
+    }
 
     return (
       <MuiThemeProvider theme={createMuiTheme(materialTheme)}>
@@ -67,4 +67,7 @@ const mapStateToProps = (state) => ({
   initURL: state.auth.initURL
 });
 
-export default connect(mapStateToProps, { setInitUrl })(App);
+export default connect(
+  mapStateToProps,
+  { setInitUrl }
+)(App);

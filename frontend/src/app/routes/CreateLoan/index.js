@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Paper, withStyles, TextField, Button } from '@material-ui/core';
 import { Alert } from 'reactstrap';
-import ContainerHeader from 'components/ContainerHeader/index';
-import { postLoan } from 'actions/loanActions';
 
+import ContainerHeader from '../../../components/ContainerHeader/index';
+import { postLoan } from '../../../actions/loanActions';
 
 const styles = (theme) => ({
   paper: {
@@ -29,7 +29,6 @@ const styles = (theme) => ({
 });
 
 class CreateLoan extends Component {
-
   state = {
     principalAmount: '',
     loanTerm: '',
@@ -53,7 +52,7 @@ class CreateLoan extends Component {
     }
   };
 
-  renderAlert = (alert) => {    
+  renderAlert = (alert) => {
     if (alert) {
       const { alertFor, alertType, alertMsg } = alert;
       if (alertFor === 'create_loan') {
@@ -62,7 +61,8 @@ class CreateLoan extends Component {
             color={alertType}
             isOpen={this.state.alertVisible}
             toggle={this.onDismiss}
-            className="alert__notify__top">
+            className="alert__notify__top"
+          >
             {alertMsg}
           </Alert>
         );
@@ -96,7 +96,8 @@ class CreateLoan extends Component {
                 variant="contained"
                 size="small"
                 color="primary"
-                className={classes.button}>
+                className={classes.button}
+              >
                 Submit
               </Button>
             </form>
@@ -113,5 +114,7 @@ const mapStateToProps = (state) => ({
   alert: state.notification
 });
 
-export default connect(mapStateToProps, { postLoan })(styledCreateLoan);
-
+export default connect(
+  mapStateToProps,
+  { postLoan }
+)(styledCreateLoan);

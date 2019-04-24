@@ -2,7 +2,6 @@ import passport from 'passport';
 import * as authController from '../controllers/auth';
 
 function setupAuthRoutes(router) {
-
   router.post('/login', authController.login);
 
   router.get(
@@ -10,7 +9,6 @@ function setupAuthRoutes(router) {
     passport.authenticate('jwt', { session: false }),
     authController.me
   );
-  
 }
 
 export default setupAuthRoutes;

@@ -7,7 +7,8 @@ import IconButton from '@material-ui/core/IconButton';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuItem from '@material-ui/core/MenuItem';
 import Menu from '@material-ui/core/Menu';
-import { logoutUser } from 'actions/authActions';
+
+import { logoutUser } from '../../actions/authActions';
 
 const styles = (theme) => ({
   flex: {
@@ -38,19 +39,17 @@ class Header extends React.Component {
     return (
       <AppBar className="app-main-header">
         <Toolbar className="app-toolbar" disableGutters={false}>
-          <div className={classes.flex}></div>
+          <div className={classes.flex} />
           <div>
             <IconButton
               aria-owns={open ? 'menu-appbar' : null}
               aria-haspopup="true"
               onClick={this.handleMenu}
               color="inherit"
-            ><AccountCircle /></IconButton>
-            <Menu
-              anchorEl={anchorEl}
-              open={open}
-              onClose={this.onClose}
             >
+              <AccountCircle />
+            </IconButton>
+            <Menu anchorEl={anchorEl} open={open} onClose={this.onClose}>
               <MenuItem onClick={this.onClose}>
                 <i className="zmdi zmdi-account zmdi-hc-fw mr-2" />
                 Profile
@@ -73,4 +72,7 @@ const mapStateToProps = (state) => ({
   drawerType: state.settings.drawerType
 });
 
-export default connect(mapStateToProps, { logoutUser })(styledHeader);
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(styledHeader);

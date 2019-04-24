@@ -3,7 +3,6 @@ import setupAuthRoutes from './auth';
 import setupLoanRoutes from './loan';
 
 function setupRoutes(app) {
-  
   // Auth Routes
   const authRouter = express.Router();
   setupAuthRoutes(authRouter);
@@ -13,7 +12,6 @@ function setupRoutes(app) {
   const loanRouter = express.Router();
   setupLoanRoutes(loanRouter);
   app.use('/api/loan', loanRouter);
-  
 }
 
 export default setupRoutes;

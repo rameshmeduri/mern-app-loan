@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Paper, withStyles, TextField, Button } from '@material-ui/core';
-
 import { Alert } from 'reactstrap';
-import ContainerHeader from 'components/ContainerHeader/index';
-import { getLoan, postPayment } from 'actions/loanActions';
 
+import ContainerHeader from '../../../components/ContainerHeader/index';
+import { getLoan, postPayment } from '../../../actions/loanActions';
 
 const styles = (theme) => ({
   paper: {
@@ -15,7 +14,6 @@ const styles = (theme) => ({
 });
 
 class Repayment extends Component {
-
   state = {
     loanAccount: {},
     fromDate: '',
@@ -64,7 +62,8 @@ class Repayment extends Component {
             color={alertType}
             isOpen={this.state.alertVisible}
             toggle={this.onDismiss}
-            className="alert__notify__top">
+            className="alert__notify__top"
+          >
             {alertMsg}
           </Alert>
         );
@@ -97,7 +96,8 @@ class Repayment extends Component {
                 </tr>
               </tbody>
             </table>
-            <br /><br />
+            <br />
+            <br />
 
             <form onSubmit={this.onSubmit}>
               <strong>From: </strong>
@@ -137,5 +137,7 @@ const mapStateToProps = (state) => ({
   alert: state.notification
 });
 
-export default connect(mapStateToProps, { getLoan, postPayment })(styledRepayment);
-
+export default connect(
+  mapStateToProps,
+  { getLoan, postPayment }
+)(styledRepayment);

@@ -4,7 +4,7 @@ import db from '../utils/db';
 
 const sixtyDaysInSeconds = 60 * 60 * 24 * 60;
 
-function login(req, res, next) {  
+function login(req, res, next) {
   const { userId, password } = req.body;
   const errors = {};
   if (!userId) {
@@ -24,7 +24,7 @@ function login(req, res, next) {
     errors.password = 'Incorrect Password';
     return res.status(404).json(errors);
   }
-  const payload = { id: user.id, name: user.name};
+  const payload = { id: user.id, name: user.name };
 
   jwt.sign(
     payload,

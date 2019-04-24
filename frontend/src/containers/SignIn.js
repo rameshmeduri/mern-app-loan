@@ -1,23 +1,22 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import Input from "@material-ui/core/Input";
-import InputAdornment from "@material-ui/core/InputAdornment";
-import Person from "@material-ui/icons/Person";
-import Visibility from "@material-ui/icons/Visibility";
-import VisibilityOff from "@material-ui/icons/VisibilityOff";
-import { Alert } from "reactstrap";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
+import Input from '@material-ui/core/Input';
+import InputAdornment from '@material-ui/core/InputAdornment';
+import Person from '@material-ui/icons/Person';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import { Alert } from 'reactstrap';
 
-import { loginUser } from "actions/authActions";
+import { loginUser } from '../actions/authActions';
 
 class SignIn extends Component {
-
   static alertVisible = true;
 
   state = {
-    userId: "",
-    password: "",
+    userId: '',
+    password: '',
     showPassword: false,
     errors: { userId: false, password: false },
     alertVisible: true
@@ -35,11 +34,11 @@ class SignIn extends Component {
     this.setState({ alertVisible: !this.state.alertVisible });
   };
 
-  onChange = e => {
+  onChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  onSubmit = e => {
+  onSubmit = (e) => {
     e.preventDefault();
     SignIn.alertVisible = true;
     const { userId, password } = this.state;
@@ -50,10 +49,10 @@ class SignIn extends Component {
     }
   };
 
-  renderAlert = alert => {
+  renderAlert = (alert) => {
     if (alert) {
       const { alertFor, alertType, alertMsg } = alert;
-      if (alertFor === "Login") {
+      if (alertFor === 'Login') {
         return (
           <Alert
             color={alertType}
@@ -68,7 +67,7 @@ class SignIn extends Component {
     }
   };
 
-  doNothing = e => {
+  doNothing = (e) => {
     e.preventDefault();
   };
 
@@ -99,7 +98,7 @@ class SignIn extends Component {
                       error={errors.userId}
                       onChange={this.onChange}
                       className="my-sm-3"
-                      inputProps={{ tabIndex: "1" }}
+                      inputProps={{ tabIndex: '1' }}
                       endAdornment={
                         <InputAdornment position="end">
                           <IconButton
@@ -113,14 +112,14 @@ class SignIn extends Component {
                     />
                     <Input
                       name="password"
-                      type={this.state.showPassword ? "text" : "password"}
+                      type={this.state.showPassword ? 'text' : 'password'}
                       fullWidth
                       placeholder="password"
                       error={errors.password}
                       value={this.state.password}
                       onChange={this.onChange}
                       className="my-sm-3"
-                      inputProps={{ tabIndex: "2" }}
+                      inputProps={{ tabIndex: '2' }}
                       endAdornment={
                         <InputAdornment position="end">
                           <IconButton
@@ -132,8 +131,8 @@ class SignIn extends Component {
                             {this.state.showPassword ? (
                               <VisibilityOff />
                             ) : (
-                                <Visibility />
-                              )}
+                              <Visibility />
+                            )}
                           </IconButton>
                         </InputAdornment>
                       }
@@ -147,12 +146,12 @@ class SignIn extends Component {
                       style={{ marginTop: '3em' }}
                     >
                       Sign In
-                      </Button>
+                    </Button>
                   </fieldset>
                 </form>
               </div>
             </div>
-            <div className="app-logo-content d-flex align-items-center justify-content-center"></div>
+            <div className="app-logo-content d-flex align-items-center justify-content-center" />
           </div>
         </div>
       </div>
@@ -160,9 +159,12 @@ class SignIn extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   user: state.auth.user,
   alert: state.notification
 });
 
-export default connect(mapStateToProps, { loginUser })(SignIn);
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(SignIn);

@@ -1,10 +1,10 @@
 import $ from 'jquery';
 
-import {  
+import {
   TOGGLE_COLLAPSED_NAV,
   WINDOW_WIDTH,
   FIXED_DRAWER
-} from 'actions/types';
+} from '../actions/types';
 
 const INIT_STATE = {
   navCollapsed: false,
@@ -14,7 +14,6 @@ const INIT_STATE = {
 
 export default (state = INIT_STATE, action) => {
   switch (action.type) {
-
     case '@@router/LOCATION_CHANGE':
       return {
         ...state,
@@ -33,7 +32,7 @@ export default (state = INIT_STATE, action) => {
         width: action.width
       };
 
-    default: return state;
-
+    default:
+      return state;
   }
 };

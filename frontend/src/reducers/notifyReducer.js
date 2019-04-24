@@ -1,4 +1,4 @@
-import { ADD_ALERT } from 'actions/types';
+import { ADD_ALERT } from '../actions/types';
 
 const INIT_STATE = {
   alertFor: '',

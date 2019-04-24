@@ -39,19 +39,24 @@ logger.info(`ENV :: ${env}`);
 
 if (env === 'production') {
   const staticPath = path.resolve(__dirname, '../../frontend/build');
-  
+
   logger.info('==============staticPath=====================');
   logger.info(staticPath);
   logger.info('===============staticPath====================');
 
-  app.use(serveStatic(staticPath, {
-    maxAge: '0',
-    setHeaders: function (res, path) {
-      res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-      res.setHeader('Expires', '-1');
-      res.setHeader('Pragma', 'no-cache');
-    }
-  }));
+  app.use(
+    serveStatic(staticPath, {
+      maxAge: '0',
+      setHeaders: function(res, path) {
+        res.setHeader(
+          'Cache-Control',
+          'private, no-cache, no-store, must-revalidate'
+        );
+        res.setHeader('Expires', '-1');
+        res.setHeader('Pragma', 'no-cache');
+      }
+    })
+  );
 }
 
 // Catch 404 and forward to error handler
@@ -68,7 +73,7 @@ app.use((err, req, res, next) => {
   const error = {
     status: err.status || 500,
     message: err.message || 'Server Error'
-  };  
+  };
   res.status(err.status).json(error);
 });
 

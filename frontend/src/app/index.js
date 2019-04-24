@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
-import Header from 'components/Header/index';
-import Sidebar from 'containers/SideNav/index';
-import Footer from 'components/Footer';
-import { COLLAPSED_DRAWER, FIXED_DRAWER } from 'actions/types';
+
+import Header from '../components/Header/index';
+import Sidebar from '../containers/SideNav/index';
+import Footer from '../components/Footer';
+import { COLLAPSED_DRAWER, FIXED_DRAWER } from '../actions/types';
 import CreateLoan from './routes/CreateLoan';
 import Repayment from './routes/Repayment';
-
 
 class App extends React.Component {
   render() {
@@ -15,8 +15,8 @@ class App extends React.Component {
     const drawerStyle = drawerType.includes(FIXED_DRAWER)
       ? 'fixed-drawer'
       : drawerType.includes(COLLAPSED_DRAWER)
-        ? 'collapsible-drawer'
-        : 'mini-drawer';
+      ? 'collapsible-drawer'
+      : 'mini-drawer';
     return (
       <div className={`app-container ${drawerStyle}`}>
         <Sidebar />

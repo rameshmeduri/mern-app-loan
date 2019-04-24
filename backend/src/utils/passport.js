@@ -5,8 +5,8 @@ import db from './db';
 import config from '../config';
 
 const opts = {
-  jwtFromRequest : ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKey : config.secret
+  jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+  secretOrKey: config.secret
 };
 
 function getJwtStrategy() {

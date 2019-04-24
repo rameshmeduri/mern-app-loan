@@ -6,12 +6,11 @@ import authReducer from './authReducer';
 import notifyReducer from './notifyReducer';
 import loanReducer from './loanReducer';
 
-
 const reducers = combineReducers({
   routing: routerReducer,
   settings: settingReducer,
   auth: authReducer,
-  notification: notifyReducer,    
+  notification: notifyReducer,
   loan: loanReducer
 });
 

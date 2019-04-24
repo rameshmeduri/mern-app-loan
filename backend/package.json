@@ -7,7 +7,8 @@
     "start": "npm run dev:watch",
     "prebuild": "rimraf dist",
     "build": "babel src --out-dir dist --source-maps --copy-files",
-    "start:dist": "node ./dist/server.js"
+    "start:dist": "node ./dist/server.js",
+    "format": "prettier --single-quote --arrow-parens always --prose-wrap never --write './src/**/*.{js,json}'"
   },
   "dependencies": {
     "app-root-path": "^2.1.0",

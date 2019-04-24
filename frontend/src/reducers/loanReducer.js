@@ -1,13 +1,11 @@
-import { GET_LOAN } from 'actions/types';
+import { GET_LOAN } from '../actions/types';
 
-const INIT_STATE = {  
+const INIT_STATE = {
   loanAccount: {}
 };
 
 export default (state = INIT_STATE, action) => {
-  
   switch (action.type) {
-
     case GET_LOAN: {
       return {
         ...state,
@@ -15,8 +13,7 @@ export default (state = INIT_STATE, action) => {
       };
     }
 
-    default: return state;
-
+    default:
+      return state;
   }
-
 };

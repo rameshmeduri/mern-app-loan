@@ -1,8 +1,8 @@
 import axios from 'axios';
 import { LOGIN_USER, LOGOUT_USER, INIT_URL, ADD_ALERT } from './types';
-import setAuthToken from 'utils/setAuthToken';
+import setAuthToken from '../utils/setAuthToken';
 
-const loginUser = userData => dispatch => {
+const loginUser = (userData) => (dispatch) => {
   axios
     .post('/api/auth/login', userData)
     .then((res) => {
